@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TacoCloud</title>
+</head>
+<body>
+    <form method="POST" th:action="@{/register}" th:object="${registrationForm}">
+        <label for="username">Enter username:</label>
+        <input type="text" name="username" id="username" th:field="*{username}"/>
+        <span style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+
+        <br/>
+
+        <label for="password">Enter password:</label>
+        <input type="password" name="password" id="password" th:fiels="*{password}"/>
+        <span style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+
+        <br/>
+
+        <label for="email">Enter email:</label>
+        <input type="email" name="email" id="email" th:field="*{email}"/>
+        <span style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+
+        <br/>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>TacoCloud</title>
+</head>
+<body>
+  <h1>Thank you for purchase!</h1>
+  <div class="user-receipt" th:object="${tacoOrder}">
+    <h2>Your receipt</h2>
+    <h3>Order:</h3>
+    <div th:each="taco: *{tacos}">
+      <span th:text="${taco.name}"></span>
+      <br/>
+    </div>
+    <h3>Delivery name:</h3>
+    <span th:text="*{deliveryName}"></span>
+    <br/>
+    <h3>Delivery street:</h3>
+    <span th:text="*{deliveryStreet}"></span>
+    <h3>Delivery city:</h3>
+    <span th:text="*{deliveryCity}"></span>
+    <br/>
+    <h3>Delivery state:</h3>
+    <span th:text="*{deliveryState}"></span>
+    <br/>
+    <h3>Delivery zip:</h3>
+    <span th:text="*{deliveryZip}"></span>
+    <br/>
+    <h3>Credit card number:</h3>
+    <span th:text="*{ccNumber}"></span>
+    <br/>
+    <h3>Expiration date:</h3>
+    <span th:text="*{ccExpiration}"></span>
+    <br/>
+    <h3>CVV:</h3>
+    <span th:text="*{ccCVV}"></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TacoCloud</title>
+</head>
+<body>
+    <h1>Welcome to login page!</h1>
+    <form method="POST" th:action="@{/login}" th:object="${user}">
+        <label for="username">Enter username:</label>
+        <input id="username" name="username" type="text"/>
+
+        <br/>
+
+        <label for="password">Enter password:</label>
+        <input id="password" name="password" type="password"/>
+
+        <br/>
+
+        <button type="submit" value="Login">LogIn</button>
+<!--        <a th:href="/oauth2/authorization/facebook">Sign in with Facebook</a>-->
+    </form>
+</body>
+</html>
