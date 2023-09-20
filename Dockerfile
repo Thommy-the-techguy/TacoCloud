@@ -1,4 +1,4 @@
-FROM maven:3.8.6-openjdk-20.ea-b24 AS build
+FROM maven:3.8.6-openjdk-20 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
