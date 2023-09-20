@@ -1,4 +1,4 @@
-FROM maven:3.8.6-openjdk-20-jdk-slim AS build
+FROM eclipse-temurin:20-jdk AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
