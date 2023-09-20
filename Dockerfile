@@ -5,4 +5,4 @@ RUN mvn clean package -DskipTests
 FROM openjdk:17.0.1-jdk-slim
 COPY --from=build /target/TacoCloud-0.0.1-SNAPSHOT.war TacoCloud.war
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","TacoCloud.jar"]
+ENTRYPOINT ["java","-jar","TacoCloud.war"]
