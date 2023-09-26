@@ -1,13 +1,17 @@
 package com.tomomoto.tacocloud.controller;
 
+import com.sun.security.auth.UserPrincipal;
 import com.tomomoto.tacocloud.dao.TacoIngredientRepository;
 import com.tomomoto.tacocloud.dao.TacoOrderRepository;
 import com.tomomoto.tacocloud.dao.TacoRepository;
+import com.tomomoto.tacocloud.entity.User;
 import com.tomomoto.tacocloud.taco.TacoIngredient;
 import com.tomomoto.tacocloud.taco.TacoOrder;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,6 +51,7 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "currentOrder";
         }
+        tacoOrder.setUser((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         tacoOrderRepository.save(tacoOrder);
         tacoOrder.getTacos().forEach(taco -> taco.setTacoOrder(tacoOrder));
         tacoOrder.getTacos().forEach(taco -> tacoRepository.save(taco));

@@ -1,10 +1,11 @@
     ---------  Paycheck  ---------
-    Name: Thomas
-    Street address: Manhattan
-    City: NYC
-    State: NY
-    Zip code: 164718
+    Name: test
+    Street address: adress
+    City: city
+    State: state
+    Zip code: 1234
     --------- Credentials ---------
     Credit card #: 4111111111111111
-    Expiration date: 12/39
+    Expiration date: 12/29
     CVV: 123
+23

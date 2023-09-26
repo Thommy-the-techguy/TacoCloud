@@ -46,10 +46,10 @@ public class ApplicationSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/design/**", "/orders/**", "/logout/**")
-                        .hasRole("USER")
                         .requestMatchers("/", "/images/*", "/login", "/register")
                         .permitAll()
+                        .requestMatchers("/design/**", "/orders/**", "/logout/**")
+                        .hasRole("USER")
                 )
                 .formLogin((login) -> login.loginPage("/login")
                         .usernameParameter("username")
@@ -59,7 +59,7 @@ public class ApplicationSecurityConfig {
                         .defaultSuccessUrl("/design"))
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/home"))
+                        .logoutSuccessUrl("/"))
                 .build();
     }
 }

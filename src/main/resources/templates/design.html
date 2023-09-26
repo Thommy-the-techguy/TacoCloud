@@ -12,7 +12,7 @@
         <input type="submit" value="logout">
     </form>
 
-    <form method="POST" th:object="${taco}">
+    <form method="POST" th:action="@{/design}" th:object="${taco}">
         <h2>Choose your wrapper:</h2>
         <div class="grid">
             <div class="ingredient-group" id="wraps">

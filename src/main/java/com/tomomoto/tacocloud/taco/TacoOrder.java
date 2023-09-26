@@ -1,11 +1,11 @@
 package com.tomomoto.tacocloud.taco;
 
+import com.tomomoto.tacocloud.entity.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.CreditCardNumber;
@@ -48,6 +48,9 @@ public class TacoOrder {
     private String ccCVV;
     @OneToMany(mappedBy = "tacoOrder")
     private List<Taco> tacos = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "users_id")
+    private User user;
 
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
